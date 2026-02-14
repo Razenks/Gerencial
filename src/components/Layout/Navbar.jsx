@@ -19,7 +19,7 @@ export const Navbar = ({ isDarkBg = false }) => {
     { name: 'Início', href: '/' },
     { name: 'Sistema Albatroz', href: '/albatroz' },
     { name: 'Serviços', href: '/servicos' },
-    { name: 'Contato', href: '#contato' }, // Links com # (hash) continuam normais
+    { name: 'Contato', href: '/contato' }, // Links com # (hash) continuam normais
   ];
 
   const textColorClass = isScrolled

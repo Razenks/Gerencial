@@ -2,19 +2,34 @@ import React from 'react';
 import { Facebook, Youtube, Linkedin, Instagram, MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 export const Footer = () => {
-  
-  // Lista de redes sociais com seus respectivos links
+
   const socialLinks = [
-    { icon: Facebook, href: "https://www.facebook.com/Gerencial.Informatica.CG/?locale=pt_BR" },
-    { icon: Youtube, href: "https://www.youtube.com/@gerencialinformatica1963" },
-    { icon: Linkedin, href: "https://www.linkedin.com/company/gerencialinformatica/" },
-    { icon: Instagram, href: "https://www.instagram.com/gerencialinformaticaoficial/" }
+    {
+      icon: Facebook,
+      href: "https://www.facebook.com/Gerencial.Informatica.CG/?locale=pt_BR",
+      style: "bg-[#1877F2]" // Azul Facebook
+    },
+    {
+      icon: Youtube,
+      href: "https://www.youtube.com/@gerencialinformatica1963",
+      style: "bg-[#FF0000]" // Vermelho YouTube
+    },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/company/gerencialinformatica/",
+      style: "bg-[#0A66C2]" // Azul LinkedIn
+    },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/gerencialinformaticaoficial/",
+      style: "bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045]" // Gradiente Instagram
+    }
   ];
 
   return (
     <footer id="contato" className="bg-slate-900 text-slate-400 pt-20 pb-8 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-slate-800">
-        
+
         {/* Sobre */}
         <div className="space-y-6">
           <div className="text-2xl font-bold text-white uppercase tracking-tighter">Gerencial</div>
@@ -23,18 +38,22 @@ export const Footer = () => {
           </p>
           <div className="flex gap-4">
             {socialLinks.map((social, i) => (
-              <a 
-                key={i} 
-                href={social.href} 
-                target="_blank" 
+              <a
+                key={i}
+                href={social.href}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-indigo-600 hover:text-white transition"
+                // REMOVIDO: A propriedade 'fill' que causava o borrão branco.
+                // O 'strokeWidth={1.5}' deixa o traço um pouco mais fino e elegante.
+                className={`w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:brightness-110 ${social.style}`}
               >
-                <social.icon size={18} />
+                <social.icon size={20} strokeWidth={1.5} />
               </a>
             ))}
           </div>
         </div>
+
+        {/* ... O RESTO DO CÓDIGO PERMANECE IGUAL ... */}
 
         {/* Endereço */}
         <div className="space-y-6">
@@ -81,7 +100,7 @@ export const Footer = () => {
         </div>
 
       </div>
-      
+
       <div className="max-w-7xl mx-auto pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
         <p>© 2026 Gerencial Informática. Todos os direitos reservados.</p>
         <div className="flex gap-6">
